@@ -27,5 +27,14 @@ jobs:
       - name: Run tests
         run: flutter test
 
+      - name: Run integration tests
+        run: flutter drive --target=test_driver/app.dart
+
       - name: Build APK
         run: flutter build apk --release
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v2
+        with:
+          name: release-apk
+          path: build/app/outputs/flutter-apk/app-release.apk
