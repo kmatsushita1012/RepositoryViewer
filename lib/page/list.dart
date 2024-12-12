@@ -98,7 +98,7 @@ class ListPage extends StatelessWidget {
                                   )),
                             ],
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 16,
                           ),
                           Expanded(
