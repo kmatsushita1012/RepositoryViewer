@@ -24,13 +24,8 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
-      # - name: Run tests
-      #   run: flutter test
-
-      - name: Run integration tests
-        run: flutter drive \
-          --driver=test_driver/integration_test.dart \
-          --target=integration_test/main_test.dart
+      - name: Run tests
+        run: flutter test
 
       - name: Build APK
         run: flutter build apk --release

@@ -8,6 +8,8 @@ import 'package:repositoryviewer/widgets/proceedabletile.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ListPage extends StatelessWidget {
+  const ListPage({super.key});
+
   void _textChanged(RepositoryProvider model, String value) {
     model.setText(value);
   }
@@ -81,12 +83,12 @@ class ListPage extends StatelessWidget {
                                           child: Row(
                                             children: [
                                               Icon(item.icon()),
-                                              SizedBox(
+                                              const SizedBox(
                                                 width: 8,
                                               ),
                                               Text(
                                                 item.toString(),
-                                                style: TextStyle(fontSize: 16),
+                                                style: const TextStyle(fontSize: 16),
                                               )
                                             ],
                                           ));
