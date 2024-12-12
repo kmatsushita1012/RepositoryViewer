@@ -95,6 +95,12 @@ abstract class AppLocalizations {
     Locale('ja')
   ];
 
+  /// No description provided for @language_name.
+  ///
+  /// In en, this message translates to:
+  /// **'English'**
+  String get language_name;
+
   /// No description provided for @title.
   ///
   /// In en, this message translates to:
@@ -118,6 +124,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Search'**
   String get search;
+
+  /// No description provided for @settings.
+  ///
+  /// In en, this message translates to:
+  /// **'Settings'**
+  String get settings;
+
+  /// No description provided for @language_setting.
+  ///
+  /// In en, this message translates to:
+  /// **'Set Language'**
+  String get language_setting;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

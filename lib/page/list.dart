@@ -88,7 +88,8 @@ class ListPage extends StatelessWidget {
                                               ),
                                               Text(
                                                 item.toString(),
-                                                style: const TextStyle(fontSize: 16),
+                                                style: const TextStyle(
+                                                    fontSize: 16),
                                               )
                                             ],
                                           ));

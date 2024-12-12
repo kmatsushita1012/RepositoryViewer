@@ -2,6 +2,12 @@
 
 A new Flutter project.
 
+##　未経験の技術
+- Providerを用いた状態管理
+- CI/CDパイプラインの構築
+- テスト
+
+
 ## Getting Started
 
 ## 作業行程

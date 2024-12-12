@@ -7,6 +7,9 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
+  String get language_name => 'English';
+
+  @override
   String get title => 'RepositoryViewer';
 
   @override
@@ -17,4 +20,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get search => 'Search';
+
+  @override
+  String get settings => 'Settings';
+
+  @override
+  String get language_setting => 'Set Language';
 }
