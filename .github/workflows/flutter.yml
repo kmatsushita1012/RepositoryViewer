@@ -25,7 +25,7 @@ jobs:
         run: flutter pub get
 
       - name: Run tests
-        run: flutter run test/integration_test.dart
+        run: flutter test
 
       - name: Build APK
         run: flutter build apk --release

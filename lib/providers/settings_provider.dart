@@ -12,20 +12,17 @@ class SettingsProvider extends ChangeNotifier {
   List<MapEntry<Locale, AppLocalizations>> get appLocalizationsEntryList =>
       _appLocalizationsEntryList;
 
-  SettingsProvider() {
-    _locale = AppLocalizations.supportedLocales.first;
-    setSharedPreferences();
-    _setLocalizations();
-  }
-
-  Future<void> setSharedPreferences() async {
-    _prefs = await SharedPreferences.getInstance();
+  SettingsProvider(SharedPreferences prefs) {
+    _prefs = prefs;
     String? localeCode = _prefs.getString("locale");
-    print(localeCode);
     if (localeCode != null) {
       _locale = Locale(localeCode);
-      notifyListeners();
+    } else {
+      _locale = AppLocalizations.supportedLocales.first;
+      _prefs.setString("locale", _locale.languageCode);
     }
+    _setLocalizations();
+    notifyListeners();
   }
 
   Future<void> _setLocalizations() async {

@@ -13,11 +13,14 @@ import 'package:integration_test/integration_test.dart';
 import 'package:repositoryviewer/main.dart';
 
 import 'package:repositoryviewer/widgets/proceedabletile.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
   testWidgets('Integration Test', (WidgetTester tester) async {
-    await tester.pumpWidget(const MyApp());
+    SharedPreferences.setMockInitialValues({'locale': 'en'});
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await tester.pumpWidget(MyApp(prefs: prefs));
 
     // テストコードをここに追加
     expect(find.text("List"), findsOneWidget);

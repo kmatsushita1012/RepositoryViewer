@@ -4,13 +4,20 @@ import 'package:repositoryviewer/page/list.dart';
 import 'package:repositoryviewer/providers/repository_provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:repositoryviewer/providers/settings_provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(const MyApp());
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  runApp(MyApp(
+    prefs: prefs,
+  ));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  final SharedPreferences prefs;
+
+  const MyApp({super.key, required this.prefs});
 
   // This widget is the root of your application.
   @override
@@ -21,7 +28,7 @@ class MyApp extends StatelessWidget {
           create: (context) => RepositoryProvider(),
         ),
         ChangeNotifierProvider(
-          create: (context) => SettingsProvider(),
+          create: (context) => SettingsProvider(prefs),
         )
       ],
       builder: (context, child) => MaterialApp(
