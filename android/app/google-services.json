@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "414029629569",
+    "project_id": "repositoryviewer-82621",
+    "storage_bucket": "repositoryviewer-82621.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:414029629569:android:6ee670e938c7834e32a580",
+        "android_client_info": {
+          "package_name": "com.technicaltest.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAsomC0qiqHfUfKbPpCctHRYZtX-F6QiJA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

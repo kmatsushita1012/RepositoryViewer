@@ -8,13 +8,17 @@ A new Flutter project.
 - テスト
 
 
-## Getting Started
 
 ## 作業行程
-
--
-- ## 開発 1
-- テスト作成
+- 1日目
+  - パイプライン雛形作成
+  - UI設計
+  - 実装1
+    - Provider,モデル作成
+    - ページ構成完成
+- 2日目
+  - 多言語対応
+  - テスト作成
 
 - 開発 2
   - UI の細部を調整
@@ -34,3 +38,6 @@ flutter clean
 flutter pub get
 flutter gen-l10n
 で治る
+
+Firebase App Distribution
+https://github.com/wzieba/Firebase-Distribution-Github-Action?tab=readme-ov-file
