@@ -19,7 +19,7 @@ void main() async {
     ChangeNotifierProvider(
       create: (context) => SettingsProvider(),
     )
-  ], child: MyApp()));
+  ], builder: (context, child) => const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
