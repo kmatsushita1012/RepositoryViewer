@@ -12,33 +12,36 @@ void main() async {
   if (SharedPreferencesSingleton().getString("locale") == null) {
     SharedPreferencesSingleton().setString("locale", 'en');
   }
-  runApp(MultiProvider(providers: [
-    ChangeNotifierProvider(
-      create: (context) => RepositoryProvider(),
-    ),
-    ChangeNotifierProvider(
-      create: (context) => SettingsProvider(),
-    )
-  ], builder: (context, child) => const MyApp()));
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-      supportedLocales: AppLocalizations.supportedLocales,
-      locale: context.watch<SettingsProvider>().locale,
-      // title: AppLocalizations.of(context)!.title,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => RepositoryProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => SettingsProvider(),
+        )
+      ],
+      builder: (context, child) => MaterialApp(
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        locale: context.watch<SettingsProvider>().locale,
+        // title: AppLocalizations.of(context)!.title,
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: true,
+        ),
+        home: ListPage(),
+        debugShowCheckedModeBanner: false,
       ),
-      home: ListPage(),
-      debugShowCheckedModeBanner: false,
     );
   }
 }
