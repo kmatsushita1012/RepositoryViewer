@@ -8,10 +8,7 @@ class RepositoryProvider extends ChangeNotifier {
   String text = "";
   SortTypes sortType = SortTypes.updated;
   List<Repository> items = [];
-
-  RepositoryProvider() {
-    getRepositories(1);
-  }
+  bool isLoading = false;
 
   void setText(String text) {
     this.text = text;
@@ -28,6 +25,8 @@ class RepositoryProvider extends ChangeNotifier {
   }
 
   void getRepositories(int page) {
+    isLoading = true;
+    notifyListeners();
     http
         .get(Uri.https(
       "api.github.com",
@@ -35,12 +34,10 @@ class RepositoryProvider extends ChangeNotifier {
       {'q': text, 'sort': sortType.toString(), 'page': page.toString()},
     ))
         .then((response) {
-      print(response.statusCode);
       if (response.statusCode == 200) {
         dynamic responseBody = utf8.decode(response.bodyBytes);
         dynamic parsedJson = jsonDecode(responseBody);
         for (var elem in parsedJson["items"]) {
-          print(elem);
           try {
             Repository item = Repository.fromSearhRepositoryItem(elem);
             items.add(item);
@@ -49,9 +46,9 @@ class RepositoryProvider extends ChangeNotifier {
             continue;
           }
         }
-        print(items);
-        notifyListeners();
       }
+      isLoading = false;
+      notifyListeners();
     });
   }
 }

@@ -4,13 +4,21 @@ A new Flutter project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+## 作業行程
 
-A few resources to get you started if this is your first Flutter project:
+-
+- 開発 1
+  -
+- テスト作成
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- 開発 2
+  - UI の細部を調整
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 参考文献
+
+https://zenn.dev/amuro/articles/27799da3afc40e
+依存関係でハマる
+flutter clean
+flutter pub get
+flutter gen-l10n
+で治る

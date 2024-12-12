@@ -3,10 +3,10 @@ name: Flutter CI/CD Pipeline
 on:
   push:
     branches:
-      - main
+      - master
   pull_request:
     branches:
-      - main
+      - master
 
 jobs:
   build:
@@ -28,7 +28,9 @@ jobs:
         run: flutter test
 
       - name: Run integration tests
-        run: flutter drive --target=test_driver/app.dart
+        run: flutter drive \
+          --driver=test_driver/integration_test.dart \
+          --target=integration_test/main_test.dart
 
       - name: Build APK
         run: flutter build apk --release

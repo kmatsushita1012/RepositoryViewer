@@ -17,10 +17,26 @@ class DetailTile extends StatelessWidget {
     // ※ 受け取るデータの クラス と <T> は揃えましょう
 
     return Container(
-      height: 40,
-      child: Row(
-        children: [Text(title), icon, Text(value)],
-      ),
-    );
+        height: 64,
+        child: Container(
+          margin: const EdgeInsets.all(16),
+          child: Row(
+            children: [
+              icon,
+              const SizedBox(
+                width: 16,
+              ),
+              Text(
+                title,
+                style: const TextStyle(fontSize: 18),
+              ),
+              const Spacer(),
+              Text(
+                value,
+                style: const TextStyle(fontSize: 18),
+              )
+            ],
+          ),
+        ));
   }
 }

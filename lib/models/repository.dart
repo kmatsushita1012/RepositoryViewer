@@ -15,6 +15,7 @@ class Repository {
       required this.watcher,
       required this.fork,
       required this.issue});
+      
   factory Repository.fromSearhRepositoryItem(dynamic item) {
     return Repository(
         name: item["name"],
