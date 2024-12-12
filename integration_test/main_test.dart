@@ -24,7 +24,6 @@ void main() {
     await testInput.receiveAction(TextInputAction.done);
     await tester.pumpAndSettle(const Duration(seconds: 1));
     final tiles = find.byType(ProceedableTile);
-    print(tiles);
     await tester.tap(tiles.at(0));
     await tester.pumpAndSettle();
 
