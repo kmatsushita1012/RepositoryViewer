@@ -4,14 +4,8 @@ import 'package:repositoryviewer/page/list.dart';
 import 'package:repositoryviewer/providers/repository_provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:repositoryviewer/providers/settings_provider.dart';
-import 'package:repositoryviewer/utils/sharedpreference.dart';
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await SharedPreferencesSingleton.init();
-  if (SharedPreferencesSingleton().getString("locale") == null) {
-    SharedPreferencesSingleton().setString("locale", 'en');
-  }
   runApp(const MyApp());
 }
 

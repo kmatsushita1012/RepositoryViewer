@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:repositoryviewer/utils/sharedpreference.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SettingsProvider extends ChangeNotifier {
-  Locale _locale =
-      Locale(SharedPreferencesSingleton().getString("locale") ?? 'en');
+  late SharedPreferences _prefs;
+  late Locale _locale;
   Locale get locale => _locale;
 
   final List<MapEntry<Locale, AppLocalizations>> _appLocalizationsEntryList =
@@ -13,8 +13,21 @@ class SettingsProvider extends ChangeNotifier {
       _appLocalizationsEntryList;
 
   SettingsProvider() {
+    _locale = AppLocalizations.supportedLocales.first;
+    setSharedPreferences();
     _setLocalizations();
   }
+
+  Future<void> setSharedPreferences() async {
+    _prefs = await SharedPreferences.getInstance();
+    String? localeCode = _prefs.getString("locale");
+    print(localeCode);
+    if (localeCode != null) {
+      _locale = Locale(localeCode);
+      notifyListeners();
+    }
+  }
+
   Future<void> _setLocalizations() async {
     for (Locale locale in AppLocalizations.supportedLocales) {
       AppLocalizations appLocalizations =
@@ -25,7 +38,7 @@ class SettingsProvider extends ChangeNotifier {
 
   void setLocale(Locale locale) {
     _locale = locale;
-    SharedPreferencesSingleton().setString("locale", locale.toLanguageTag());
+    _prefs.setString("locale", locale.toLanguageTag());
     notifyListeners();
   }
 }
